@@ -1,0 +1,28 @@
+version: "3.1"
+services:
+  postgres:
+    image: "postgres:14.6"
+    shm_size: 1g
+    networks:
+      - news-api-network
+    ports:
+      - "5432:5432"
+    command: postgres -c listen_addresses='*' -c max_connections=500
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=news
+      - POSTGRES_USER=news
+      - POSTGRES_PASSWORD=news
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U news"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:
+
+networks:
+  news-api-network:
+    driver: bridge
