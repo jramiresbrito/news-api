@@ -48,3 +48,5 @@ end
 
 
 gem "devise", "~> 4.9"
+
+gem "responders", "~> 3.1"
