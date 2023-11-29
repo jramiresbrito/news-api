@@ -20,6 +20,29 @@ services:
       timeout: 5s
       retries: 5
 
+  rails-app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: rails-app
+    ports:
+      - '3000:3000'
+    command:  bash -c "bundle install && rails db:migrate && rails s -b 0.0.0.0"
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=news
+      - DB_PASSWORD=news
+      - DB_NAME=news
+      - RAILS_MAX_THREADS=5
+    networks:
+      - news-api-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   pgdata:
 
