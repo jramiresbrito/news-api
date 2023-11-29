@@ -1,8 +1,8 @@
-# FINANCE NEWS API
+# TECH NEWS API
 
-Este projeto contém a API que provê as funcionalidades descritas no projeto Finance News.
+Este projeto contém a API que provê as funcionalidades descritas no projeto Tech News.
 Em resumo, a API gerencia uma aplicação de compartilhamento de notícias onde os usuários
-podem cadastrar-se e compartilhar notícias sobre dinheiro e investimentos.
+podem cadastrar-se e compartilhar notícias sobre programação e tecnologia.
 
 # TECNOLOGIAS
 A API foi desenvolvida usando Ruby e seu principal framework para aplicações web, o [Ruby on Rails](https://rubyonrails.org/).
